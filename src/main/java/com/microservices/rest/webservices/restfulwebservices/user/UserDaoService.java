@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Component;
+import org.springframework.util.ObjectUtils;
 
 @Component
 public class UserDaoService {
@@ -42,5 +43,13 @@ public class UserDaoService {
 
   public User findOne(int id) {
     return users.stream().filter(user -> user.getId() == id).findAny().orElse(null);
+  }
+
+  public User deleteById(int id) {
+    User deleteUser = findOne(id);
+    if (!ObjectUtils.isEmpty(deleteUser)) {
+      users.remove(deleteUser);
+    }
+    return deleteUser;
   }
 }
