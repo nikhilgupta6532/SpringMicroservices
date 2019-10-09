@@ -8,7 +8,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Component;
 
 @Component
-public class userDaoService {
+public class UserDaoService {
   private static List<User> users = new ArrayList<>();
 
   private static int usersCount = 3;
